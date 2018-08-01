@@ -1,0 +1,30 @@
+<div class="col-md-6">
+    <div class="page-title clearfix">
+        <h2 style="float:left;"> Event Details</h2>
+        <div style="float: right;margin: 10px;"><button class="btn btn-danger" (click)="addEvent()"> Add Event</button></div>
+    </div>
+    
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th class="hidden">Id</th>
+                <th>Event Name</th>
+                <th>Event Time</th>
+                <th>Category</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let event of events">
+                <td class="hidden">{{event.EventId}}</td>
+                <td><a (click)="viewEvent(event)" style="cursor: pointer;">{{event.EventName}}</a></td>
+                <td>{{event.EventTime}}</td>
+                <td>{{event.CategoryName}}</td>
+                <td>
+                    <button class="btn btn-danger" (click)="deleteEvent(event)"> Delete</button>
+                    <button class="btn btn-danger" (click)="editEvent(event)" style="margin-left: 20px;"> Edit</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

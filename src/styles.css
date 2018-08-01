@@ -1,0 +1,36 @@
+/* You can add global styles to this file, and also import other style files */
+
+.pull-left {
+    float: left;
+}
+
+.form-group {
+    clear: both;
+}
+
+.bmargin15 {
+    margin-bottom: 15px;
+}
+
+.lmargin10 {
+    margin-left: 10px;
+}
+
+.form-control.time {
+    max-width: 100px;
+    float: left;
+}
+.page-title {
+     margin: 10px;
+     text-align: left !important;
+     
+    background-color: #dfdfdf;
+}
+
+.page-title h2{
+   
+    color: #FF0000;
+    
+    padding: 10px;
+    line-height: 1;
+}

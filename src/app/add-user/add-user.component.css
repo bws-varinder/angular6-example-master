@@ -1,0 +1,30 @@
+.pull-left {
+    float: left;
+}
+
+
+.form-group {
+    clear: both;
+}
+
+.bmargin15 {
+    margin-bottom: 15px;
+}
+
+.lmargin10 {
+    margin-left: 10px;
+}
+
+.form-control.time {
+    max-width: 100px;
+    float: left;
+}
+
+.page-title h2{
+    margin: 10px;
+    color: #FF0000;
+    text-align: left !important;
+    padding: 10px;
+    background-color: #dfdfdf;
+    line-height: 1;
+}

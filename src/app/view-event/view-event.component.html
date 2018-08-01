@@ -1,0 +1,48 @@
+<div class="col-md-4">
+    <div class="page-title">
+        <h2 class="text-center">{{EventDetails.EventName}}</h2>
+    </div>
+    <div style="width: 80%; margin: 20px auto;" class="clearfix">
+        <div style="width: 100%; height: 300px; margin: 20px auto;background-color:#eae7e7; text-align:center;">
+            
+        </div>
+        <div class="form-group clearfix">
+            <div class="col-md-3 pull-left">
+                <label for="firstName">Category:</label>
+            </div>
+            <div class="col-md-9 pull-left">
+                {{EventDetails.CategoryName}}
+            </div>
+        </div>
+        <div class="form-group clearfix">
+            <div class="col-md-3 pull-left">
+                <label for="lastName">Time:</label>
+            </div>
+            {{EventDetails.EventTime}}
+        </div>
+        <div class="form-group clearfix">
+            <div class="col-md-3 pull-left">
+                <label for="lastName">Place:</label>
+            </div>
+            <div class="col-md-9 pull-left">
+                <div class="bmargin15">
+                    {{EventDetails.Address1}}<span *ngIf="EventDetails.Address2 && EventDetails.Address2!=''">, {{EventDetails.Address2}}</span><br />
+                    {{EventDetails.Address3}}<br />
+                    {{EventDetails.Address4}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="form-group clearfix">
+            <div class="col-md-12">
+                {{EventDetails.EventDescription}}
+            </div>
+        </div>
+        <div class="form-group clearfix">
+            <iframe width="560" height="315" [src]="EventDetails.YoutubeUrl | safe"
+                    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+</div>

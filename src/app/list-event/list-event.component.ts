@@ -1,22 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
-import {UserService} from "../service/user.service";
-import {EventObj} from "../model/user.model";
+import {EventService} from "../service/event.service";
+import {EventObj} from "../model/event.model";
 
 @Component({
-    selector: 'app-list-user',
-    templateUrl: './list-user.component.html',
-    styleUrls: ['./list-user.component.css']
+    selector: 'app-list-event',
+    templateUrl: './list-event.component.html',
+    styleUrls: ['./list-event.component.css']
 })
-export class ListUserComponent implements OnInit {
+export class ListEventComponent implements OnInit {
     events: EventObj[];
 
-    constructor(private router: Router, private userService: UserService) { }
+    constructor(private router: Router, private eventService: EventService) { }
 
     ngOnInit() {
-        this.userService.getEvents(-1).subscribe(data => {
+        this.eventService.getAllEvents().subscribe(data => {
             if (data.Status > 0) {
-                this.events = data.details;
+                this.events = data.Data;
             }
             else {
                 alert(data.Message)
@@ -26,7 +26,7 @@ export class ListUserComponent implements OnInit {
     }
 
     deleteEvent(event: EventObj): void {
-        this.userService.deleteUser(event.EventId)
+        this.eventService.deleteEvent(event.EventId)
             .subscribe(data => {
                 this.events = this.events.filter(u => u !== event);
             })

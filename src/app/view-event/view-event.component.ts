@@ -1,7 +1,7 @@
 import { Component, OnInit, PipeTransform, Pipe } from '@angular/core';
-import {UserService} from "../service/user.service";
+import {EventService} from "../service/event.service";
 import {Router} from "@angular/router";
-import {EventObj} from "../model/user.model";
+import {EventObj} from "../model/event.model";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {first} from "rxjs/operators";
 import { DomSanitizer } from "@angular/platform-browser";
@@ -23,20 +23,20 @@ export class ViewEventComponent implements OnInit {
 
     event: EventObj;
     EventDetails: EventObj;
-    constructor(private formBuilder: FormBuilder, private router: Router, private userService: UserService) { }
+    constructor(private formBuilder: FormBuilder, private router: Router, private eventService: EventService) { }
 
     ngOnInit() {
         let EventId = localStorage.getItem("editEventId");
         if (!EventId) {
             alert("Invalid action.")
-            this.router.navigate(['list-user']);
+            this.router.navigate(['list-event']);
             return;
         }
 
-        this.userService.getEvents(+EventId)
+        this.eventService.getEvents(+EventId)
             .subscribe(data => {
                 if (data.Status > 0) {
-                    this.EventDetails = data.details[0];
+                    this.EventDetails = data.Data;
                 }
                 else {
                     alert(data.Message)

@@ -1,15 +1,15 @@
 import { RouterModule, Routes } from '@angular/router';
 import {LoginComponent} from "./login/login.component";
-import {AddUserComponent} from "./add-user/add-user.component";
-import {ListUserComponent} from "./list-user/list-user.component";
-import {EditUserComponent} from "./edit-user/edit-user.component";
+import {AddEventComponent} from "./add-event/add-event.component";
+import {ListEventComponent} from "./list-event/list-event.component";
+import {EditEventComponent} from "./edit-event/edit-event.component";
 import {ViewEventComponent} from "./view-event/view-event.component";
  
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'add-event', component: AddUserComponent },
-  { path: 'list-events', component: ListUserComponent },
-  { path: 'edit-event', component: EditUserComponent },
+  { path: 'add-event', component: AddEventComponent },
+  { path: 'list-events', component: ListEventComponent },
+  { path: 'edit-event', component: EditEventComponent },
   { path: 'view-event', component: ViewEventComponent },
   {path : '', component : LoginComponent}
 ];

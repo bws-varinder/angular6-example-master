@@ -1,21 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import {UserService} from "../service/user.service";
+import {EventService} from "../service/event.service";
 import {Router} from "@angular/router";
-import {EventObj} from "../model/user.model";
+import {EventObj} from "../model/event.model";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {first} from "rxjs/operators";
 
 @Component({
-    selector: 'app-edit-user',
-    templateUrl: './edit-user.component.html',
-    styleUrls: ['./edit-user.component.css']
+    selector: 'app-edit-event',
+    templateUrl: './edit-event.component.html',
+    styleUrls: ['./edit-event.component.css']
 })
-export class EditUserComponent implements OnInit {
+export class EditEventComponent implements OnInit {
 
     Submitted = false;
     event: EventObj;
     editForm: FormGroup;
-    constructor(private formBuilder: FormBuilder, private router: Router, private userService: UserService) { }
+    constructor(private formBuilder: FormBuilder, private router: Router, private eventService: EventService) { }
 
     ngOnInit() {
         let EventId = localStorage.getItem("editEventId");
@@ -40,33 +40,36 @@ export class EditUserComponent implements OnInit {
             Address3: ['', Validators.required],
             Address4: ['', Validators.required],
             EventDescription: ['', Validators.required],
-            YoutubeUrl: ['', Validators.required]
+            YoutubeUrl: ['', Validators.required],
+            CreatedDate: [],
+            UpdatedDate:[]
         });
 
-        this.userService.getEvents(+EventId)
+        this.eventService.getEvents(+EventId)
             .subscribe(data => {
                 console.log(data)
                 if (data.Status > 0) {
-                    this.editForm.setValue(data.details[0]);
+                    this.editForm.setValue(data.Data);
                 }
                 else {
                     alert(data.Message)
                 }
             });
-    }
+    } 
 
     onSubmit() {
         if (this.editForm.valid) {
-            this.editForm.value.EventTime = this.editForm.value.Day + '/' + this.editForm.value.Month + '/' + this.editForm.value.Year + " " + this.editForm.value.Hour + ':' + this.editForm.value.Minute;
-            this.userService.createUpdateUser(this.editForm.value)
+            this.editForm.value.EventTime = this.editForm.value.Day + '/' + this.editForm.value.Month + '/' + this.editForm.value.Year + " " +
+                this.editForm.value.Hour + ':' + this.editForm.value.Minute;
+            this.eventService.updateEvent(this.editForm.value)
                 .subscribe(data => {
+                    console.log(data)
                     if (data.Status > 0) {
                         this.router.navigate(['list-events']);
                     }
                     else {
                         alert(data.Message)
                     }
-
                 });
         }
         else {

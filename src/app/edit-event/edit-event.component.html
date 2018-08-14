@@ -1,11 +1,11 @@
 <div class="col-md-6">
-    <div class="page-title"> 
-        <h2 class="text-center">Add Event</h2>
+    <div class="page-title">
+        <h2 class="text-center">Edit Event</h2>
     </div>
-    <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
         <div class="form-group clearfix">
             <div class="col-md-3 pull-left">
-                <label for="email">Event Name:</label> <span style="color:red;" *ngIf="Submitted && !addForm.controls['EventName'].valid">Required</span>
+                <label for="email">Event Name:</label> <span style="margin-left: 10px;font-size:11px; color:red;" *ngIf="Submitted && !editForm.controls['EventName'].valid">Required</span>
             </div>
             <div class="col-md-9 pull-left">
                 <input type="text" formControlName="EventName" placeholder="Event Name" name="EventName" class="form-control" id="EventName">
@@ -13,7 +13,7 @@
         </div>
         <div class="form-group clearfix">
             <div class="col-md-3 pull-left">
-                <label for="firstName">Category:</label> <span style="color:red;" *ngIf="Submitted && !addForm.controls['CategoryName'].valid">Required</span>
+                <label for="firstName">Category:</label> <span style="margin-left: 10px;font-size:11px; color:red;" *ngIf="Submitted && !editForm.controls['CategoryName'].valid">Required</span>
             </div>
             <div class="col-md-9 pull-left">
                 <select [(ngModel)]="CategoryName" formControlName="CategoryName" class="form-control">
@@ -190,37 +190,37 @@
             <div class="col-md-9 pull-left">
                 <div class="bmargin15">
                     <input type="text" formControlName="Address1" placeholder="" name="Address1" class="form-control" id="Address1">
-                    <span style="color:red;" *ngIf="Submitted && !addForm.controls['Address1'].valid">Required</span>
+                    <span style="font-size:11px; color:red;" *ngIf="Submitted && !editForm.controls['Address1'].valid">Required</span>
                 </div>
                 <div class="bmargin15">
                     <input type="text" formControlName="Address2" placeholder="" name="Address2" class="form-control" id="Address2">
-                    <span style="color:red;" *ngIf="Submitted && !addForm.controls['Address2'].valid">Required</span>
+                    <span style="font-size:11px; color:red;" *ngIf="Submitted && !editForm.controls['Address2'].valid">Required</span>
                 </div>
                 <div class="bmargin15">
                     <input type="text" formControlName="Address3" placeholder="" name="Address3" class="form-control" id="Address3">
-                    <span style="color:red;" *ngIf="Submitted && !addForm.controls['Address3'].valid">Required</span>
+                    <span style="font-size:11px; color:red;" *ngIf="Submitted && !editForm.controls['Address3'].valid">Required</span>
                 </div>
                 <div>
                     <input type="text" formControlName="Address4" placeholder="" name="Address4" class="form-control" id="Address4">
-                    <span style="color:red;" *ngIf="Submitted && !addForm.controls['Address4'].valid">Required</span>
+                    <span style="font-size:11px; color:red;" *ngIf="Submitted && !editForm.controls['Address4'].valid">Required</span>
                 </div>
             </div>
         </div>
 
         <div class="form-group clearfix">
-            <div class="col-md-3 pull-left"><label for="lastName">Description:</label><span style="color:red;" *ngIf="Submitted && !addForm.controls['EventDescription'].valid">Required</span></div>
+            <div class="col-md-3 pull-left"><label for="lastName">Description:</label><span style="margin-left: 10px;font-size:11px; color:red;" *ngIf="Submitted && !editForm.controls['EventDescription'].valid">Required</span></div>
             <div class="col-md-9 pull-left">
-                <input type="text" formControlName="EventDescription" placeholder="Description" name="EventDescription" class="form-control" id="EventDescription">
+                <input type="text" formControlName="EventDescription" placeholder="EventDescription" name="EventDescription" class="form-control" id="EventDescription">
             </div>
         </div>
         <div class="form-group clearfix">
             <div class="col-md-3 pull-left">
-                <label for="lastName">Youtube Url:</label><span style="color:red;" *ngIf="Submitted && !addForm.controls['YoutubeUrl'].valid">Required</span>
+                <label for="lastName">Youtube Url:</label><span style="margin-left: 10px;font-size:11px; color:red;" *ngIf="Submitted && !editForm.controls['YoutubeUrl'].valid">Required</span>
             </div>
             <div class="col-md-9 pull-left">
                 <input type="text" formControlName="YoutubeUrl" placeholder="Youtube Url" name="YoutubeUrl" class="form-control" id="YoutubeUrl">
             </div>
         </div>
-        <button class="btn btn-success">Save</button>
+        <button class="btn btn-success">Update</button>
     </form>
 </div>

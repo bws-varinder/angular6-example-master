@@ -17,12 +17,12 @@
         <tbody>
             <tr *ngFor="let event of events">
                 <td class="hidden">{{event.EventId}}</td>
-                <td><a (click)="viewEvent(event)" style="cursor: pointer;">{{event.EventName}}</a></td>
+                <td><a (click)="viewEvent(event)" title="view" style="cursor: pointer;color: #dc3545;">{{event.EventName}}</a></td>
                 <td>{{event.EventTime}}</td>
                 <td>{{event.CategoryName}}</td>
                 <td>
-                    <button class="btn btn-danger" (click)="deleteEvent(event)"> Delete</button>
-                    <button class="btn btn-danger" (click)="editEvent(event)" style="margin-left: 20px;"> Edit</button>
+                    <button class="btn btn-danger" title="Delete" (click)="deleteEvent(event)"> Delete</button>
+                    <button class="btn btn-danger" title="Edit" (click)="editEvent(event)" style="margin-left: 20px;"> Edit</button>
                 </td>
             </tr>
         </tbody>

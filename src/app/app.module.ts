@@ -7,19 +7,19 @@ import {routing} from "./app.routing";
 import {AuthenticationService} from "./service/auth.service";
 import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
-import { AddUserComponent } from './add-user/add-user.component';
-import { EditUserComponent } from './edit-user/edit-user.component';
-import {ListUserComponent} from "./list-user/list-user.component";
+import { AddEventComponent } from './add-event/add-event.component';
+import { EditEventComponent } from './edit-event/edit-event.component';
+import {ListEventComponent} from "./list-event/list-event.component";
 import {ViewEventComponent, SafePipe} from "./view-event/view-event.component";
-import {UserService} from "./service/user.service";
+import {EventService} from "./service/event.service";
 
 @NgModule({
     declarations: [
         AppComponent,
         LoginComponent,
-        ListUserComponent,
-        AddUserComponent,
-        EditUserComponent,
+        ListEventComponent,
+        AddEventComponent,
+        EditEventComponent,
         ViewEventComponent,
         SafePipe
     ],
@@ -29,7 +29,7 @@ import {UserService} from "./service/user.service";
         ReactiveFormsModule,
         HttpClientModule
     ],
-    providers: [AuthenticationService, UserService],
+    providers: [AuthenticationService, EventService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
